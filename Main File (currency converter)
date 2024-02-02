@@ -1,0 +1,77 @@
+use std::io;
+
+fn main() {
+		println!("Currency Converter");
+		println!("1. USD to NOK");
+		println!("2. NOK to USD");
+		println!("3. USD to Euro");
+		println!("4. Euro to USD");
+		println!("5. Euro to NOK");
+		println!("6. NOK to Euro");
+
+		let mut input = String::new();
+
+		io::stdin().read_line(&mut input)
+				.expect("Failed to read line");
+
+		let choice: i32 = input.trim().parse().expect("Please enter a number");
+
+		match choice {
+				1 => {
+						println!("Enter amount in USD: ");
+						let mut input = String::new();
+						io::stdin().read_line(&mut input)
+								.expect("Failed to read line");
+						let usd: f64 = input.trim().parse().expect("Please enter a number"); 
+						let nok = usd * 8.69;
+						println!("{} USD is {} NOK", usd, nok);
+				},
+				2 => {
+						println!("Enter amount in NOK: ");
+						let mut input = String::new();
+						io::stdin().read_line(&mut input)
+								.expect("Failed to read line");
+						let nok: f64 = input.trim().parse().expect("Please enter a number");
+						let usd = nok / 8.69;
+						println!("{} NOK is {} USD", nok, usd);
+				},
+				3 => {
+						println!("Enter amount in USD: ");
+						let mut input = String::new();
+						io::stdin().read_line(&mut input)
+								.expect("Failed to read line");
+						let usd: f64 = input.trim().parse().expect("Please enter a number"); 
+						let euro = usd * 0.84; // exchange rate as of writing
+						println!("{} USD is {} Euro", usd, euro);
+				},
+				4 => {
+						println!("Enter amount in Euro: ");
+						let mut input = String::new();
+						io::stdin().read_line(&mut input)
+								.expect("Failed to read line");
+						let euro: f64 = input.trim().parse().expect("Please enter a number");
+						let usd = euro / 0.84; // exchange rate as of writing
+						println!("{} Euro is {} USD", euro, usd);
+				},
+				5 => {
+						println!("Enter amount in Euro: ");
+						let mut input = String::new();
+						io::stdin().read_line(&mut input)
+								.expect("Failed to read line");
+						let euro: f64 = input.trim().parse().expect("Please enter a number");
+						let nok = euro * 10.36; // exchange rate as of writing
+						println!("{} Euro is {} NOK", euro, nok);
+				},
+				6 => {
+						println!("Enter amount in NOK: ");
+						let mut input = String::new();
+						io::stdin().read_line(&mut input)
+								.expect("Failed to read line");
+						let nok: f64 = input.trim().parse().expect("Please enter a number");
+						let euro = nok / 10.36; // exchange rate as of writing
+						println!("{} NOK is {} Euro", nok, euro);
+				},
+				_ => println!("Invalid choice"),
+		}
+}
+
