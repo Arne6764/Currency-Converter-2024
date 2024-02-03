@@ -2,13 +2,22 @@ use std::io;
 
 fn main() {
 		println!("Currency Converter");
-		println!("1. USD to NOK");
-		println!("2. NOK to USD");
-		println!("3. USD to Euro");
-		println!("4. Euro to USD");
-		println!("5. Euro to NOK");
-		println!("6. NOK to Euro");
-
+  println!("-----");
+		println!("1.  USD to NOK");
+		println!("2.  NOK to USD");
+		println!("3.  USD to Euro");
+		println!("4.  Euro to USD");
+		println!("5.  Euro to NOK");
+		println!("6.  NOK to Euro");
+    println!("7.  USD to GBP");
+    println!("8.  GBP to USD");
+    println!("9.  NOK to GBP");
+    println!("10. GBP to NOK");
+    println!("11. Euro to GBP");
+    println!("12. GBP to Euro");
+    println!("13. USD to JPY");
+    println!("14. JPY to USD");
+  println!("-----");
 		let mut input = String::new();
 
 		io::stdin().read_line(&mut input)
@@ -71,7 +80,79 @@ fn main() {
 						let euro = nok / 10.36; // exchange rate as of writing
 						println!("{} NOK is {} Euro", nok, euro);
 				},
-				_ => println!("Invalid choice"),
-		}
-}
+        7 => {
+          println!("Enter amount in USD: ");
+          let mut input = String::new();
+         io::stdin().read_line(&mut input)
+          .expect("Failed to read line");
+      let usd: f64 = input.trim().parse().expect("Please enter a number");
+      let gbp = usd * 0.72; // exchange rate as of writing
+      println!("{} USD is {} GBP", usd, gbp);
+      },
+      8 => {
+      println!("Enter amount in GBP: ");
+      let mut input = String::new();
+      io::stdin().read_line(&mut input)
+          .expect("Failed to read line");
+      let gbp: f64 = input.trim().parse().expect("Please enter a number");
+      let usd = gbp / 0.72; // exchange rate as of writing
+      println!("{} GBP is {} USD", gbp, usd);
+      },
+      9 => {
+      println!("Enter amount in NOK: ");
+      let mut input = String::new();
+      io::stdin().read_line(&mut input)
+          .expect("Failed to read line");
+      let nok: f64 = input.trim().parse().expect("Please enter a number");
+      let gbp = nok / 10.36; // exchange rate as of writing
+      println!("{} NOK is {} GBP", nok, gbp);
+      },
+      10 => {
+      println!("Enter amount in GBP: ");
+      let mut input = String::new();
+      io::stdin().read_line(&mut input)
+          .expect("Failed to read line");
+      let gbp: f64 = input.trim().parse().expect("Please enter a number");
+      let nok = gbp * 10.36; // exchange rate as of writing
+      println!("{} GBP is {} NOK", gbp, nok);
+      },
+      11 => {
+      println!("Enter amount in Euro: ");
+      let mut input = String::new();
+      io::stdin().read_line(&mut input)
+          .expect("Failed to read line");
+      let euro: f64 = input.trim().parse().expect("Please enter a number");
+      let gbp = euro * 1.17; // exchange rate as of writing
+      println!("{} Euro is {} GBP", euro, gbp);
+      },
+      12 => {
+      println!("Enter amount in GBP: ");
+      let mut input = String::new();
+      io::stdin().read_line(&mut input)
+          .expect("Failed to read line");
+      let gbp: f64 = input.trim().parse().expect("Please enter a number");
+      let euro = gbp / 1.17; // exchange rate as of writing
+      println!("{} GBP is {} Euro", gbp, euro);
+      },
+      13 => {
+          println!("Enter amount in USD: ");
+          let mut input = String::new();
+          io::stdin().read_line(&mut input)
+              .expect("Failed to read line");
+          let usd: f64 = input.trim().parse().expect("Please enter a number");
+          let jpy = usd * 109.57; // exchange rate as of writing
+          println!("{} USD is {} JPY", usd, jpy);
+      },
+      14 => {
+          println!("Enter amount in JPY: ");
+          let mut input = String::new();
+          io::stdin().read_line(&mut input)
+              .expect("Failed to read line");
+          let jpy: f64 = input.trim().parse().expect("Please enter a number");
+          let usd = jpy / 109.57; // exchange rate as of writing
+          println!("{} JPY is {} USD", jpy, usd);
+      },
 
+      _ => println!("Invalid choice"),
+      }
+}      
