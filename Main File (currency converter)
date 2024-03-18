@@ -2,13 +2,13 @@ use std::io;
 
 fn main() {
 		println!("Currency Converter");
-  println!("-----");
-		println!("1.  USD to NOK");
-		println!("2.  NOK to USD");
-		println!("3.  USD to Euro");
-		println!("4.  Euro to USD");
-		println!("5.  Euro to NOK");
-		println!("6.  NOK to Euro");
+  	println!("-----");
+	println!("1.  USD to NOK");
+	println!("2.  NOK to USD");
+	println!("3.  USD to Euro");
+	println!("4.  Euro to USD");
+	println!("5.  Euro to NOK");
+	println!("6.  NOK to Euro");
     println!("7.  USD to GBP");
     println!("8.  GBP to USD");
     println!("9.  NOK to GBP");
